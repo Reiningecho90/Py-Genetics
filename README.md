@@ -6,3 +6,4 @@ Updates:
 - Added DNA_Anaylasis.py, preparing to pull request to a new branch (5/8/2021)
 - Moved code to new branch '`code`' (5/8/2021)
 - Added code pushing branch `code-p` to push from (5/7/2021)
+- Added project page to the repo (5/8/2021)
