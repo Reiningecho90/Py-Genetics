@@ -1,25 +1,29 @@
+# Imports
 import pandas as pd
 
+# Gather data and convert to list
 gene_code = pd.read_csv('Genetics\Genetic Codes\Code-mRNA.txt', engine='python', delimiter=', ')
 
 gene_code = list(gene_code)
 
 
+# Data cleaning function
 def clean_data():
     for i in gene_code:
         if len(i) > 3:
             i = i[:-2]
 
 
+# Finds mutatuions in DNA codon list
 def find_mutations_DNA(codon_list):
     item_count = 0
     data_count = 0
     mutation_type = ''
 
-    DNA_codon_p = {'Adenine': 'A', 'Thymine': 'T', 'Guanine': 'G', 'Cytosine': 'C'}
-    mRNA_codon_p = {'Uracil': 'U'}
+    DNA_codon_p = {'Adenine': 'A', 'Thymine': 'T', 'Guanine': 'G', 'Cytosine': 'C'} # DNA bases
+    mRNA_codon_p = {'Uracil': 'U'} # mRNA extra base
 
-    for i in codon_list:
+    for i in codon_list: # Find abnormalities/mutations
         data_count = data_count + 1
         length = len(i)
         if length > 6:
@@ -34,15 +38,16 @@ def find_mutations_DNA(codon_list):
             item_count = item_count+1
 
 
+# Finds mutatations in mRNA codon list (imported)
 def find_mutations_mRNA(codon_list):
     item_count = 0
     data_count = 0
     mutation_type = ''
 
     DNA_codon_p = {'Thymine': 'T'}
-    mRNA_codon_p = {'Adenine': 'A', 'Uracil': 'U', 'Guanine': 'G', 'Cytosine': 'C'}
+    mRNA_codon_p = {'Adenine': 'A', 'Uracil': 'U', 'Guanine': 'G', 'Cytosine': 'C'} # Reversed DNA codon list minus thymine for uracil as mRNA does not posess thymine
 
-    for i in codon_list:
+    for i in codon_list: # Find abnormalities/mutations
         data_count = data_count + 1
         length = len(i)
         if length > 6:
@@ -56,11 +61,14 @@ def find_mutations_mRNA(codon_list):
             print(mutation_type)
             item_count = item_count+1
 
+
+# Run data cleaning
 print('Cleaning Data')
 clean_data()
 
-processing_type = input('Input codon key name: ')
+processing_type = input('Input codon key name: ') # Ask which function to use based on import
 
+# Find which function to use based on user input
 if processing_type == 'DNA':
     print(find_mutations_DNA(gene_code))
 elif processing_type == 'mRNA':
