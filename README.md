@@ -8,3 +8,4 @@ Updates:
 - Added code pushing branch `code-p` to push from (5/10/2021)
 - Added project page to the repo (5/11/2021)
 - Fixed dates (5/11/2021)
+- Updated code and merged pull request (5/12/2021)
