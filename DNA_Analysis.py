@@ -2,7 +2,9 @@
 import pandas as pd
 
 # Gather data and convert to list
-gene_code = pd.read_csv('Genetics\Genetic Codes\Code-mRNA.txt', engine='python', delimiter=', ')
+data_file = input("Input a data file using PATH (eg: /folder/filename.txt): ")
+
+gene_code = pd.read_csv(str(data_file))
 
 gene_code = list(gene_code)
 
