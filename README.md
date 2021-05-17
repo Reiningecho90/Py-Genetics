@@ -9,3 +9,4 @@ Updates:
 - Added project page to the repo (5/11/2021)
 - Fixed dates (5/11/2021)
 - Updated code and merged pull request (5/12/2021)
+- Updates code to comply with new features, pull request merged (5/17/2021)
