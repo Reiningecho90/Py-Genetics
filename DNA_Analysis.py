@@ -1,3 +1,4 @@
+#Imports
 import pandas as pd
 
 data_file = input("Input a data file using PATH (eg: /folder/filename.txt): ")
@@ -7,12 +8,14 @@ gene_code = pd.read_csv(str(data_file))
 gene_code = list(gene_code)
 
 
+# Data Cleaning
 def clean_data():
     for i in gene_code:
         if len(i) > 3:
             i = i[:-2]
 
 
+# Main function to parse file inputted (DNA VERSION)
 def find_mutations_DNA(codon_list):
     item_count = 0
     data_count = 0
@@ -40,7 +43,8 @@ def find_mutations_DNA(codon_list):
         else:
             return 'No Issues Found'
 
-
+        
+# Main function to parse file inputted (mRNA VERSION)
 def find_mutations_mRNA(codon_list):
     item_count = 0
     data_count = 0
@@ -73,6 +77,7 @@ clean_data()
 
 processing_type = input('Input codon key name: ')
 
+# Inputted processing type decipher
 if processing_type == 'DNA':
     print(find_mutations_DNA(gene_code))
 elif processing_type == 'mRNA':
