@@ -11,3 +11,4 @@ Updates:
 - Updated code and merged pull request (5/12/2021)
 - Updates code to comply with new features, pull request merged (5/17/2021)
 - Added new function to input your own file path into the script, code coming soon (5/21/2021)
+- Proposed new function on issues page, may work on that soon if other project coincide (5/29/2021)
