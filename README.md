@@ -13,3 +13,4 @@ Updates:
 - Added new function to input your own file path into the script, code coming soon (5/21/2021)
 - Proposed new function on issues page, may work on that soon if other project coincide (5/29/2021)
 - Working on new function, should be finished soon providing everything goes well (6/3/2021)
+- Finished the first part of new function, this now changes the text input to a list of three values (6/14/2021)
