@@ -1,3 +1,4 @@
+# Imports
 import pandas as pd
 from pandas.io import parsers
 
@@ -10,6 +11,7 @@ gene_code = list(gene_code)
 inp_new = []
 
 
+# Find mutation functions
 def find_mutations_DNA(codon_list):
     item_count = 0
     data_count = 0
@@ -86,6 +88,7 @@ def parse_code_mRNA():
     print(transcribe_Info('m_d'))
 
 
+# Transcription functions
 def transcribe_Info(type):
     new_info = []
     info = inp_new
@@ -112,6 +115,7 @@ def transcribe_Info(type):
     return 0
 
 
+# Process chosing code
 processing_type = input('Input codon key name: ')
 
 if processing_type == 'DNA':
