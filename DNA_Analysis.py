@@ -1,5 +1,5 @@
-#Imports
 import pandas as pd
+from pandas.io import parsers
 
 data_file = input("Input a data file using PATH (eg: /folder/filename.txt): ")
 
@@ -7,15 +7,9 @@ gene_code = pd.read_csv(str(data_file))
 
 gene_code = list(gene_code)
 
-
-# Data Cleaning
-def clean_data():
-    for i in gene_code:
-        if len(i) > 3:
-            i = i[:-2]
+inp_new = []
 
 
-# Main function to parse file inputted (DNA VERSION)
 def find_mutations_DNA(codon_list):
     item_count = 0
     data_count = 0
@@ -43,8 +37,7 @@ def find_mutations_DNA(codon_list):
         else:
             return 'No Issues Found'
 
-        
-# Main function to parse file inputted (mRNA VERSION)
+
 def find_mutations_mRNA(codon_list):
     item_count = 0
     data_count = 0
@@ -72,13 +65,60 @@ def find_mutations_mRNA(codon_list):
         else:
             return 'No Issues Found'
 
-print('Cleaning Data')
-clean_data()
+
+def parse_code_DNA():
+    global inp_new
+    input = gene_code
+    input = str(input[0])
+    inp_new = []
+    for index in range(0, len(str(input)), 1):
+        inp_new.append(str(input)[index : index + 1])
+    print(transcribe_Info('d_m'))
+
+
+def parse_code_mRNA():
+    global inp_new
+    input = gene_code
+    input = str(input[0])
+    inp_new = []
+    for index in range(0, len(str(input)), 1):
+        inp_new.append(str(input)[index : index + 1])
+    print(transcribe_Info('m_d'))
+
+
+def transcribe_Info(type):
+    new_info = []
+    info = inp_new
+    if type == 'm_d':
+
+        data_types = {'A': 'A', 'U': 'T', 'C': 'C', 'G': 'G'}
+            
+        for i in info:
+            i = data_types[i]
+            new_info.append(i)
+
+        print(''.join([i for i in new_info]))
+
+    elif type == 'd_m':
+
+        data_types = {'A': 'A', 'T': 'U', 'C': 'C', 'G': 'G'}
+
+        for i in info:
+            i = data_types[i]
+            new_info.append(i)
+
+        print(''.join([i for i in new_info]))
+
+    return 0
+
 
 processing_type = input('Input codon key name: ')
 
-# Inputted processing type decipher
 if processing_type == 'DNA':
     print(find_mutations_DNA(gene_code))
 elif processing_type == 'mRNA':
     print(find_mutations_mRNA(gene_code))
+elif processing_type == 'DNA_C':
+    print(parse_code_DNA())
+elif processing_type == 'mRNA_C':
+    print(parse_code_mRNA())
